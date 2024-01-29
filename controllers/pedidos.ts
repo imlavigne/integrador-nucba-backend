@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Pedido, { IPedidos } from "../models/pedidos";
 import { ObjectId } from "mongoose";
-import { sendEmailPedido } from "../sending/mailerPedido";
+
 import Usuario,{IUser} from "../models/usuario";
 
 
@@ -36,15 +36,12 @@ export const crearPedido = async (req: Request, res: Response): Promise<void> =>
     }
     const pedido = new Pedido(data)
     await pedido.save()
-    // console.log(pedido)
-    // const {fecha}=data
+ 
     // 
     
 
 
-    if(email){
-     await sendEmailPedido(email,pedido)
-    }
+   
     res.status(201).json({
         pedido
     })
