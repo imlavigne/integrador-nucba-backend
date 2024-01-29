@@ -8,7 +8,7 @@ import pedidosRoutes from "../routes/pididos"
 
 
 
-export class Server {
+export default class Server {
     
     app: Express;
     port: string|number|undefined;
