@@ -16,8 +16,9 @@ export const sendEmail = async (to: string, code: string): Promise<void> => {
             from: "matias lavigne",
             to,
             subject: "codigo de verificacion para la cuenta",
-            text: ` llego tu codigo de verificacion para Uno Mas PetFood
-            el codigo es: ${code}`
+            text: ` llego tu codigo de verificacion
+            el codigo es: ${code}
+            ingresa a https://integrador-react-mu.vercel.app/verify para verificar tu cuenta`
         }
 
         //envio de correo
