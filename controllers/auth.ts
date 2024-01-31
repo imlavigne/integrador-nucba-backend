@@ -33,34 +33,32 @@ export const verificarUsuario = async (req: Request, res: Response): Promise<voi
     try {
         const usuario = await Usuario.findOne({ email })
         if (!usuario) {
-            throw new Error(`${email} en la base de datos`)
-            // res.status(400).json({
-            //     msg: "no se encontro el email en la bd"
-            // })
+            
+            res.status(400).json({
+                msg: "no se encontro el email en la bd"
+            })
             return
         }
 
         if (usuario.verifield) {
-            throw new Error(`${email} ya esta verificado`)
-            // res.status(409).json({
-            //     msg: "el usuario ya esta verificado "
-            // })
+            res.status(409).json({
+                msg: "el usuario ya esta verificado "
+            })
             return
         }
         if (usuario.code !== code) {
-            throw new Error(`el codigo es incorrecto`)
-            // res.status(403).json({
-            //     msg: "el codigo es incorecto"
-            // })
+            res.status(403).json({
+                msg: "el codigo es incorecto"
+            })
             return
 
         }
         // console.log(`email es ${email} el codigo es ${code}`)
         const actualizarUsuario = await Usuario.findOneAndUpdate({ email }, { verifield: true })
-        throw new Error(`${email} se verifico correctamente`)
-        // res.status(200).json({
-        //     msg: 'se ha verificado correctamente'
-        // })
+
+        res.status(200).json({
+            msg: 'se ha verificado correctamente'
+        })
     } catch (error) {
         console.log(error)
         res.status(500).json({
