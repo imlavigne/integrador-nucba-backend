@@ -1,11 +1,13 @@
 import { Model, Schema, model, Types } from "mongoose";
 
 interface IItem {
-    des: string;
-    id: Number;
-    precio: Number;
+    animal:string;
     cantidad: Number;
-    title: string;
+    descripcion: string;
+    id: Number;
+    marca:string;
+    precio: Number;
+    productImg: string;
 }
 
 export interface IPedidos {
@@ -15,7 +17,7 @@ export interface IPedidos {
     items: IItem[];
     direccion: String;
     localidad: String;
-    codigoPostal: Number;
+    codigoPostal: Number; 
 }
 
 const PedidoSchema = new Schema<IPedidos>({
