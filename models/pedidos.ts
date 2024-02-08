@@ -34,6 +34,14 @@ const PedidoSchema = new Schema<IPedidos>({
     },
     items: {
         type: [{
+            animal: {
+                type: String,
+                required: true,
+            },
+            cantidad: {
+                type: Number,
+                required: true
+            },
             descripcion: {
                 type: String,
                 required: true,
@@ -42,21 +50,23 @@ const PedidoSchema = new Schema<IPedidos>({
                 type: Number,
                 required: true,
             },
+            marca: {
+                type: String,
+                required: true
+            },
             precio: {
                 type: Number,
                 required: true
             },
-            cantidad: {
-                type: Number,
-                required: true
-            },
-            marca: {
+            productImg: {
                 type: String,
                 required: true
             }
+
+
         }
         ],
-        required:true
+        required: true
     },
     direccion: {
         type: String,
@@ -66,9 +76,9 @@ const PedidoSchema = new Schema<IPedidos>({
         type: String,
         required: true
     },
-    codigoPostal:{
-        type:Number,
-        required:true
+    codigoPostal: {
+        type: Number,
+        required: true
     }
 
 })
