@@ -34,7 +34,7 @@ const PedidoSchema = new Schema<IPedidos>({
     },
     items: {
         type: [{
-            des: {
+            descripcion: {
                 type: String,
                 required: true,
             },
@@ -50,7 +50,7 @@ const PedidoSchema = new Schema<IPedidos>({
                 type: Number,
                 required: true
             },
-            title: {
+            marca: {
                 type: String,
                 required: true
             }
